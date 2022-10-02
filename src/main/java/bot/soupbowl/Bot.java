@@ -110,12 +110,12 @@ public class Bot {
 
     /**
      * Register a {@link SlashCommand} as a server command
-     * @param serverID {@link Guild} ID
+     * @param key {@link Guild} ID
      * @param command {@link SlashCommand} instance
      * @apiNote This should register almost instantly!
      */
-    public void registerServerCommand(@NotNull String serverID, @NotNull SlashCommand command) {
-        commandMap.registerServerCommand(serverID, command.getName(), command);
+    public void registerServerCommand(@NotNull String key, @NotNull SlashCommand command) {
+        commandMap.registerServerCommand(key, command.getName(), command);
     }
 
     /**
