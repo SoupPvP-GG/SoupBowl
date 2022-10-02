@@ -110,7 +110,7 @@ public class SuggestionModalListener extends ListenerAdapter {
             builder.setColor(new Color(0, 255, 0));
             builder.setTitle("New Suggestion! | Accepted!");
             StringBuilder descriptionBuilder = builder.getDescriptionBuilder();
-            descriptionBuilder.append("\n\n**Accepted at:** <t:").append(System.currentTimeMillis()).append(">");
+            descriptionBuilder.append("\n\n**Accepted at:** <t:").append(System.currentTimeMillis() / 1000).append(">");
             message.editMessageEmbeds(builder.build()).queue();
 
             event.reply("Successfully accepted suggestion!").setEphemeral(true).queue();
@@ -134,7 +134,7 @@ public class SuggestionModalListener extends ListenerAdapter {
             builder.setColor(new Color(255, 0, 0));
             builder.setTitle("New Suggestion! | Denied!");
             StringBuilder descriptionBuilder = builder.getDescriptionBuilder();
-            descriptionBuilder.append("\n\n**Denied at:** <t:").append(System.currentTimeMillis()).append(">");
+            descriptionBuilder.append("\n\n**Denied at:** <t:").append(System.currentTimeMillis() / 1000).append(">");
             message.editMessageEmbeds(builder.build()).queue();
 
             event.reply("Successfully denied suggestion!").setEphemeral(true).queue();
