@@ -51,7 +51,9 @@ public class ApplicationSelectMenuListener extends ListenerAdapter {
                     question.getId(),
                     question.getQuestion(),
                     question.getStyle()
-            ).setRequired(question.isRequired()).build();
+            ).setPlaceholder(question.getPlaceholder())
+                    .setRequired(question.isRequired())
+                    .build();
 
             builder.addActionRows(ActionRow.of(input));
         }
@@ -123,7 +125,8 @@ public class ApplicationSelectMenuListener extends ListenerAdapter {
                     String.valueOf(questions.indexOf(question)),
                     question.getQuestion(),
                     question.getStyle()
-            ).setRequired(question.isRequired()).build();
+            ).setPlaceholder(question.getPlaceholder())
+                    .setRequired(question.isRequired()).build();
 
             builder.addActionRows(ActionRow.of(input));
         }
