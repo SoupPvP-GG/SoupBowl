@@ -4,6 +4,7 @@ import bot.soupbowl.api.Scheduler;
 import bot.soupbowl.api.SoupBowlAPI;
 import bot.soupbowl.api.command.CommandMap;
 import bot.soupbowl.api.command.SlashCommand;
+import bot.soupbowl.commands.CommandAnnounce;
 import bot.soupbowl.commands.CommandPing;
 import bot.soupbowl.commands.CommandReload;
 import bot.soupbowl.commands.application.CommandApply;
@@ -87,6 +88,7 @@ public class Bot {
         registerServerCommand("953360052784336896", new CommandSuggestions(this.api));
         registerServerCommand("953360052784336896", new CommandReload(builder));
         registerServerCommand("953360052784336896", new CommandApply(api.getApplicationManager()));
+        registerServerCommand("953360052784336896", new CommandAnnounce(builder));
 
         jda = builder.build().awaitReady();
         initializeCommands(jda);

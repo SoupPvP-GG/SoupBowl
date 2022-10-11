@@ -15,4 +15,7 @@ public class SoupConfig {
     @SerializedName("suggestions-admin-role")
     private String suggestionsManagerRoleID;
 
+    @SerializedName("announcement-channel")
+    private String announcementsChannel;
+
 }
