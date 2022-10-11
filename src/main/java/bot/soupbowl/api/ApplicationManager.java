@@ -10,6 +10,8 @@ public interface ApplicationManager {
 
     int MAX_QUESTIONS = 5;
 
+    void reloadConfig();
+
     @NotNull
     ApplicationConfig getConfig();
 

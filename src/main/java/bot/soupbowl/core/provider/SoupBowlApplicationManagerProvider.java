@@ -18,7 +18,7 @@ import java.util.*;
 
 public class SoupBowlApplicationManagerProvider implements ApplicationManager {
 
-    private final ApplicationConfig config;
+    private ApplicationConfig config;
 
     @SneakyThrows
     public SoupBowlApplicationManagerProvider() {
@@ -61,6 +61,18 @@ public class SoupBowlApplicationManagerProvider implements ApplicationManager {
                 throw new RuntimeException("Failed to load applications.json file", e);
             }
 
+        }
+    }
+
+    @Override
+    public void reloadConfig() {
+        File file = new File("config/applications.json");
+        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+
+        try(Reader reader = new FileReader(file)) {
+            config = gson.fromJson(reader, ApplicationConfig.class);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load applications.json file", e);
         }
     }
 

@@ -46,7 +46,9 @@ public class CommandReload extends SlashCommand {
             String[] split = id.split(":");
             String action = split[1];
             if (action.equalsIgnoreCase("confirm")) {
-                Bot.getInstance().reloadConfig();
+                Bot bot = Bot.getInstance();
+                bot.reloadConfig();
+                bot.getApi().getApplicationManager().reloadConfig();
                 event.reply("Reloaded configuration files").setEphemeral(true).queue();
                 return;
             }
