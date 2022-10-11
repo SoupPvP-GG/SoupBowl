@@ -6,11 +6,13 @@ import bot.soupbowl.api.command.CommandMap;
 import bot.soupbowl.api.command.SlashCommand;
 import bot.soupbowl.commands.CommandPing;
 import bot.soupbowl.commands.CommandReload;
+import bot.soupbowl.commands.application.CommandApply;
 import bot.soupbowl.commands.suggestions.CommandSuggest;
 import bot.soupbowl.commands.suggestions.CommandSuggestions;
 import bot.soupbowl.config.SoupConfig;
 import bot.soupbowl.core.provider.CommandMapProvider;
 import bot.soupbowl.core.provider.SoupBowlAPIProvider;
+import bot.soupbowl.listeners.ApplicationSelectMenuListener;
 import bot.soupbowl.listeners.SlashCommandListener;
 import bot.soupbowl.listeners.SuggestionModalListener;
 import com.google.gson.Gson;
@@ -21,8 +23,6 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
@@ -52,6 +52,7 @@ public class Bot {
     public Bot() {
         instance = this;
 
+
         // Config loader
         File file = new File("config", "main.json");
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
@@ -77,19 +78,22 @@ public class Bot {
         this.commandMap = new CommandMapProvider();
         builder.addEventListeners(
                 new SlashCommandListener(this.commandMap),
-                new SuggestionModalListener()
+                new SuggestionModalListener(),
+                new ApplicationSelectMenuListener(api.getApplicationManager())
         );
 
         registerServerCommand("953360052784336896", new CommandPing());
         registerServerCommand("953360052784336896", new CommandSuggest(this.api));
         registerServerCommand("953360052784336896", new CommandSuggestions(this.api));
         registerServerCommand("953360052784336896", new CommandReload(builder));
+        registerServerCommand("953360052784336896", new CommandApply(api.getApplicationManager()));
 
         jda = builder.build().awaitReady();
         initializeCommands(jda);
 
         Scheduler scheduler = api.getScheduler();
     }
+
 
     @SneakyThrows
     private void saveConfig(File file, Gson gson) {
