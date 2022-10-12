@@ -2,8 +2,8 @@ package bot.soupbowl.commands.suggestions;
 
 import bot.soupbowl.api.SoupBowlAPI;
 import bot.soupbowl.api.SuggestionBlacklistManager;
-import bot.soupbowl.api.command.SlashCommand;
-import bot.soupbowl.api.command.SlashInfo;
+import games.negative.framework.discord.command.SlashCommand;
+import games.negative.framework.discord.command.SlashInfo;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;

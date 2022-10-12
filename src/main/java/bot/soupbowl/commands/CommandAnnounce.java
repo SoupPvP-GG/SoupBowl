@@ -1,9 +1,9 @@
 package bot.soupbowl.commands;
 
 import bot.soupbowl.Bot;
-import bot.soupbowl.api.command.SlashCommand;
-import bot.soupbowl.api.command.SlashInfo;
 import bot.soupbowl.config.SoupConfig;
+import games.negative.framework.discord.command.SlashCommand;
+import games.negative.framework.discord.command.SlashInfo;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;

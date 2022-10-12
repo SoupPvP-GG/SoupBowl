@@ -1,14 +1,13 @@
 package bot.soupbowl.commands.application;
 
 import bot.soupbowl.api.ApplicationManager;
-import bot.soupbowl.api.command.SlashCommand;
-import bot.soupbowl.api.command.SlashInfo;
 import bot.soupbowl.config.application.ApplicationEntry;
+import games.negative.framework.discord.command.SlashCommand;
+import games.negative.framework.discord.command.SlashInfo;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 
-import java.util.Collection;
 import java.util.Map;
 
 @RequiredArgsConstructor

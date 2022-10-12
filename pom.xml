@@ -73,6 +73,10 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>negative-games</id>
+            <url>https://repo.negative.games/repository/maven-public/</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -100,6 +104,12 @@
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.39.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>games.negative.framework.discord</groupId>
+            <artifactId>discord-framework</artifactId>
+            <version>1.0.0-ALPHA-1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
