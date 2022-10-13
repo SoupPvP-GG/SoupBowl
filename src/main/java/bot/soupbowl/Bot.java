@@ -1,6 +1,5 @@
 package bot.soupbowl;
 
-import bot.soupbowl.api.Scheduler;
 import bot.soupbowl.api.SoupBowlAPI;
 import bot.soupbowl.commands.CommandAnnounce;
 import bot.soupbowl.commands.CommandPing;
@@ -81,8 +80,6 @@ public class Bot extends DiscordBot {
 
         jda = builder.build().awaitReady();
         initializeCommands(jda);
-
-        Scheduler scheduler = api.getScheduler();
 
         JSONConfigManager json = getJsonConfigManager();
         this.embedsConfig = json.loadOrCreate("config", "embeds", EmbedsConfig.class, new EmbedsConfig(), null);

@@ -13,12 +13,6 @@ public interface SoupBowlAPI {
 //    MongoManager getMongoManager();
 //
 
-    /**
-     * Get the {@link Scheduler} instance
-     * @return {@link Scheduler}
-     */
-    Scheduler getScheduler();
-
 
     SuggestionBlacklistManager getSuggestionBlacklistManager();
 
