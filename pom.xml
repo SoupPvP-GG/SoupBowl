@@ -108,7 +108,7 @@
         <dependency>
             <groupId>games.negative.framework.discord</groupId>
             <artifactId>discord-framework</artifactId>
-            <version>1.0.0-ALPHA-1</version>
+            <version>1.0.0-ALPHA-3</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
