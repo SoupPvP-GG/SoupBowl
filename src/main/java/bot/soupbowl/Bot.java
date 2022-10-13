@@ -8,6 +8,7 @@ import bot.soupbowl.commands.CommandReload;
 import bot.soupbowl.commands.application.CommandApply;
 import bot.soupbowl.commands.suggestions.CommandSuggest;
 import bot.soupbowl.commands.suggestions.CommandSuggestions;
+import bot.soupbowl.config.EmbedsConfig;
 import bot.soupbowl.config.SoupConfig;
 import bot.soupbowl.core.provider.SoupBowlAPIProvider;
 import bot.soupbowl.listeners.ApplicationSelectMenuListener;
@@ -15,6 +16,7 @@ import bot.soupbowl.listeners.SuggestionModalListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import games.negative.framework.discord.DiscordBot;
+import games.negative.framework.discord.config.json.JSONConfigManager;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import net.dv8tion.jda.api.JDA;
@@ -37,11 +39,11 @@ public class Bot extends DiscordBot {
 
     private final SoupBowlAPI api;
     private SoupConfig config = null;
+    private EmbedsConfig embedsConfig;
 
     @SneakyThrows
     public Bot() {
         instance = this;
-
 
         // Config loader
         File file = new File("config", "main.json");
@@ -81,6 +83,9 @@ public class Bot extends DiscordBot {
         initializeCommands(jda);
 
         Scheduler scheduler = api.getScheduler();
+
+        JSONConfigManager json = getJsonConfigManager();
+        this.embedsConfig = json.loadOrCreate("config", "embeds", EmbedsConfig.class, new EmbedsConfig(), null);
     }
 
 
