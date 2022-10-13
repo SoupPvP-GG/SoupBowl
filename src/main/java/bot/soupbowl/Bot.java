@@ -39,7 +39,7 @@ public class Bot extends DiscordBot {
 
     private final SoupBowlAPI api;
     private SoupConfig config = null;
-    private EmbedsConfig embedsConfig;
+    private final EmbedsConfig embedsConfig;
 
     @SneakyThrows
     public Bot() {
@@ -86,6 +86,9 @@ public class Bot extends DiscordBot {
 
         JSONConfigManager json = getJsonConfigManager();
         this.embedsConfig = json.loadOrCreate("config", "embeds", EmbedsConfig.class, new EmbedsConfig(), null);
+        if (embedsConfig != null) {
+            json.save("config", "embeds", embedsConfig);
+        }
     }
 
 
